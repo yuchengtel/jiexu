@@ -111,6 +111,7 @@ export const getSchoolDetails = () => {
         }
         title
         desc
+        imgInfo { url }
         projects {
           secondTitle
           secondImg { url }

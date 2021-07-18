@@ -210,6 +210,7 @@ export default new Vuex.Store({
         if (res) {
           res.schoolDetails.forEach(item => {
             item.headerImg = item.headerImg && HOST + item.headerImg.url;
+            item.imgInfo = item.imgInfo && HOST + item.imgInfo.url;
             item.projects = item.projects.map(elem => {
               elem.secondImg = elem.secondImg && HOST + elem.secondImg.url;
               elem.thirdImg = elem.thirdImg && HOST + elem.thirdImg.url;

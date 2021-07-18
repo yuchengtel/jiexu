@@ -29,36 +29,45 @@
         {{ details.title }}
       </v-card-text>
       <v-card-text v-html="details.desc" />
-      <v-card
-        v-for="(ele, k) in details.projects"
-        :key="k"
-        tile
-        style="margin-bottom: 20px; padding: 8px 16px;"
-      >
-        <v-card-text class="title_blod font16">
-          {{ ele.secondTitle }}
-        </v-card-text>
+      <template v-if="details.imgInfo">
         <v-img
-          v-if="ele.secondImg"
-          :src="ele.secondImg"
+          height="100%"
+          width="100%"
+          :src="details.imgInfo"
         />
-        <v-flex
-          v-for="(data, j) in ele.secondDesc"
-          :key="j"
+      </template>
+      <template v-else>
+        <v-card
+          v-for="(ele, k) in details.projects"
+          :key="k"
+          tile
+          style="margin-bottom: 20px; padding: 8px 16px;"
         >
-          <v-card-text
-            v-if="data.title"
-            class="title_blod"
-          >
-            {{ data.title }}
+          <v-card-text class="title_blod font16">
+            {{ ele.secondTitle }}
           </v-card-text>
-          <v-card-text>{{ data.desc }}</v-card-text>
-        </v-flex>
-        <v-img
-          v-if="ele.thirdImg"
-          :src="ele.thirdImg"
-        />
-      </v-card>
+          <v-img
+            v-if="ele.secondImg"
+            :src="ele.secondImg"
+          />
+          <v-flex
+            v-for="(data, j) in ele.secondDesc"
+            :key="j"
+          >
+            <v-card-text
+              v-if="data.title"
+              class="title_blod"
+            >
+              {{ data.title }}
+            </v-card-text>
+            <v-card-text>{{ data.desc }}</v-card-text>
+          </v-flex>
+          <v-img
+            v-if="ele.thirdImg"
+            :src="ele.thirdImg"
+          />
+        </v-card>
+      </template>
     </v-flex>
   </div>
 </template>
